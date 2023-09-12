@@ -17,24 +17,22 @@ let oneEuroIs = {
 	"GBP": 0.8, // british pound
 }
 
-console.log(oneEuroIs["JPY"])
-console.log(oneEuroIs["USD"])
-console.log(oneEuroIs["GBP"])
-
-function fromDollarToYen(Dollar){
-	yen = oneEuroIs["JPY"];
-	usd = oneEuroIs["USD"];
-	conversion = Dollar*(yen/usd);
-	return conversion;
+const fromEuroToDollar = function(valueInEuro){
+	let valueInDollar = valueInEuro * 1.2;
+	return valueInDollar;
 }
+console.log("Euro to Dollar: ",fromEuroToDollar(1));
 
-function fromEuroToDollar(Euro){
-	usd = oneEuroIs["USD"];
-	return Euro*usd;
-}
 
-function fromYenToPound(Yen){
-	gbp = oneEuroIs["GBP"];
-	jpy = oneEuroIs["JPY"];
-	return Yen*(gbp/jpy);
+const fromDollarToYen= function(valueInDollar){
+	let valueInYen=valueInDollar*(127.9/1.2);
+	return valueInYen;
 }
+console.log("Dollar to Yen :", fromDollarToYen(1));
+
+
+const fromYenToPound= function(valueInYen){
+	let valueInPound=valueInYen*(0.8/127.9);
+	return valueInPound;
+}
+console.log("Yen to Pound :",fromYenToPound(1));
